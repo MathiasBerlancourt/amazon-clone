@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import amazon from "../../public/amazonLogo.svg";
+
 import {
   MenuIcon,
   SearchIcon,
@@ -11,7 +13,7 @@ const Header = () => {
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
           <Image
-            src="https://links.papareact.com/f90"
+            src={amazon}
             width={150}
             height={40}
             objectFit="contain"
@@ -26,16 +28,20 @@ const Header = () => {
           <SearchIcon className="h-8 p4" />
         </div>
         <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div>
+          <div className="link">
             <p>Hello Mathias</p>
-            <p>Account & list</p>
+            <p className="font-extrabold md:text-sm">Account & list</p>
           </div>
-          <div>
+          <div className="link">
             <p>Returns</p>
             <p>& Orders</p>
           </div>
-          <div>
+          <div className="relative link flex items-center">
+            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
+              0
+            </span>
             <ShoppingCartIcon className="h-10" />
+            <p className="font-extrabold md:text-sm md:inline mt-2">Cart</p>
           </div>
         </div>
       </div>
