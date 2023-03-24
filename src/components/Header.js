@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import amazon from "../../public/amazonLogo.svg";
 
 import {
   MenuIcon,
@@ -11,11 +10,11 @@ const Header = () => {
   return (
     <header>
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
-        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
+        <div className="mt-2 px-5  flex items-center flex-grow sm:flex-grow-0">
           <Image
-            src={amazon}
-            width={150}
-            height={40}
+            src="/Amazon_logo.svg"
+            width={60.3 * 1.5}
+            height={18.2 * 1.5}
             objectFit="contain"
             className="cursor-pointer "
           />
@@ -44,6 +43,21 @@ const Header = () => {
             <p className="font-extrabold md:text-sm md:inline mt-2">Cart</p>
           </div>
         </div>
+      </div>
+      <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
+        <p className="link flex items-center">
+          <MenuIcon className="h-6 mr-1" />
+          All
+        </p>
+        <p className="link">Prime video</p>
+        <p className="link">Amazon Business</p>
+        <p className="link">Today's Deals</p>
+        <p className="link hidden lg:inline-flex">Electronics</p>
+        <p className="link hidden lg:inline-flex">Food & Grocery</p>
+        <p className="link hidden lg:inline-flex">Prime</p>
+        <p className="link hidden lg:inline-flex">buy Again</p>
+        <p className="link hidden lg:inline-flex">Shopper Toolkit</p>
+        <p className="link hidden lg:inline-flex">Health & Personal Care</p>
       </div>
     </header>
   );
