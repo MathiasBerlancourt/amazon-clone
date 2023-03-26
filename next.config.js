@@ -1,4 +1,6 @@
-module.exports = {
+const withImages = require("next-images");
+
+module.exports = withImages({
   images: {
     remotePatterns: [
       {
@@ -8,11 +10,17 @@ module.exports = {
       {
         protocol: "https",
         hostname: "fakestoreapi.com",
+        pathname: "/img/**",
       },
       {
         protocol: "https",
         hostname: "links.papareact.com",
       },
+    ],
+    domains: [
+      `links.papareact.com`,
+      `fakestoreapi.com`,
+      `upload.wikimedia.org`,
     ],
   },
   loaders: [
@@ -33,15 +41,4 @@ module.exports = {
       },
     ],
   },
-};
-const withImages = require("next-images");
-module.exports = withImages();
-
-//   images: {
-//     domains: [
-//       `links.papareact.com`,
-//       `fakestoreapi.com`,
-//       `upload.wikimedia.org`,
-//     ],
-//   },
-// };
+});

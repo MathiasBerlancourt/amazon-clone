@@ -1,6 +1,5 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import jul from "../../public/jul.jpeg";
 
 export const Banner = () => {
   return (
@@ -25,12 +24,35 @@ export const Banner = () => {
         <div className="bg-gray-100 h-fit">
           <img
             loading="lazy"
-            src={jul}
-            alt="le J"
+            src="/amazonHero1.jpg"
+            alt="hero1"
             className="object-contain h-fit"
           />
         </div>
-        <div className="bg-gray-100  h-fit"></div>
+        <div className="bg-gray-100  h-fit">
+          <img
+            loading="lazy"
+            src="/amazonHero2.jpg"
+            alt="hero2"
+            className="object-contain h-fit"
+          />
+        </div>
+        <div className="bg-gray-100  h-fit">
+          <img
+            loading="lazy"
+            src="/amazonHero3.jpg"
+            alt="hero3"
+            className="object-contain h-fit"
+          />
+        </div>
+        <div className="bg-gray-100  h-fit">
+          <img
+            loading="lazy"
+            src="/jul.jpeg"
+            alt="hero4"
+            className="object-contain h-fit"
+          />
+        </div>
       </Carousel>
     </div>
   );
