@@ -1,17 +1,21 @@
 import React from "react";
 import Image from "next/image";
-
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import {
   MenuIcon,
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 const Header = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
   return (
     <header>
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         <div className="mt-2 px-5  flex items-center flex-grow sm:flex-grow-0">
           <Image
+            onClick={() => router.push("/")}
             src="/Amazon_logo.svg"
             width={60.3 * 1.5}
             height={18.2 * 1.5}
@@ -27,8 +31,13 @@ const Header = () => {
           <SearchIcon className="h-8 p4" />
         </div>
         <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="link">
-            <p>Hello Mathias</p>
+          <div
+            onClick={!session ? signIn : signOut}
+            className="cursor-pointer link"
+          >
+            <p className="hover:underline">
+              {session ? `Hi, ${session.user.name}` : `Sign In`}
+            </p>
             <p className="font-extrabold md:text-sm">Account & list</p>
           </div>
           <div className="link">
