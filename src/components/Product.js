@@ -2,15 +2,33 @@ import { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Currency from "react-currency-formatter";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 const Product = ({ id, title, price, description, category, image }) => {
   /* On va mettre des étoiles au hasard pour la démo car il n'y a pas de vraies notes clients , rating va etre initialisé à un nombre random entre 1 et 5*/
+  const dispatch = useDispatch();
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
   const [hasPrime] = useState(Math.random() < 0.5);
+
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      rating,
+      description,
+      category,
+      image,
+      hasPrime,
+    };
+    //On envoie le product en action au Redux store qui correspond au basket slice
+    dispatch(addToBasket(product));
+  };
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
@@ -47,7 +65,9 @@ const Product = ({ id, title, price, description, category, image }) => {
         </div>
       )}
       {/* ici l classe buton est une custom class tailwind */}
-      <button className="mt-auto button">Add to Cart</button>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to Cart
+      </button>
     </div>
   );
 };
