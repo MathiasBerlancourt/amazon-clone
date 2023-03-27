@@ -37,3 +37,5 @@ Run commands
 3. `yarn run dev`
 
 ## Deployed on Netifly (no GoogleAuth on prod) **[🔗](https://gleaming-gumdrop-0339b4.netlify.app/)**
+
+![Texte alternatif](/public/screenshot.png "screenshot")
