@@ -57,7 +57,7 @@ export const Banner = () => {
           <img
             loading="lazy"
             src="/amazonHero4.jpg"
-            alt="hero4"
+            alt="hero5"
             className="object-contain  "
           />
         </div>
