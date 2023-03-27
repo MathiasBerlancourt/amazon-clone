@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "cross-env next dev",
     "build": "next build",
-    "start": "next start --openssl-legacy-provider "
+    "start": "next start"
   },
   "dependencies": {
     "@heroicons/react": "v1",
