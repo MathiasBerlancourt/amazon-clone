@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import CheckoutProduct from "../components/CheckoutProduct";
 import Image from "next/dist/client/image";
 import { useSelector } from "react-redux";
-import { selectItems } from "../slices/basketSlice";
+import { selectItems, selectTotal } from "../slices/basketSlice";
 import Currency from "react-currency-formatter";
 import { useSession } from "next-auth/react";
 const Checkout = () => {
@@ -47,9 +47,10 @@ const Checkout = () => {
           {items.length > 0 && (
             <>
               <h2 className="whitespace-nowrap">
-                Subtotal{items.length} items:
+                <span className="font-normal">Subtotal</span> ({items.length}{" "}
+                items) :
                 <span className="font-bold">
-                  {/* <Currency quantity={total} currency="EUR" /> */}
+                  <Currency quantity={total} currency="EUR" />
                 </span>
               </h2>
               <button
